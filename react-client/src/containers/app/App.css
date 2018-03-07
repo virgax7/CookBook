@@ -26,8 +26,9 @@
 }
 
 #cookBookTitle {
-    font-size: 30px;
+    font-size: 40px;
     padding: 15px 10px 0px 10px;
+    margin-left: 5%;
 }
 
 #searchWrapper {
@@ -53,6 +54,9 @@
     width: 22%;
     background-color: #ffffe6;
     text-align: center;
+    /*using below makes padding part of the div #sideBar size so float doesn't drop for #mainContent*/
+    box-sizing: border-box;
+    padding: 25px;
 }
 
 #mainContent {
@@ -62,7 +66,7 @@
 
 .categories {
     height: 900px;
-    padding: 10px;
+    padding: 20px;
 }
 
 .categoryContent {
@@ -73,4 +77,8 @@
     margin-top: 30px;
     text-align: center;
     padding: 10px;
+}
+
+#categoryTitle {
+   font-size: 42px;
 }

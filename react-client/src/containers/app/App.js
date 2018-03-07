@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "../reset.css";
 import "./App.css";
 import NavBar from "../../components/landing/NavBar";
 import SideBar from "../../components/landing/SideBar";
