@@ -5,14 +5,14 @@ class SideBar extends Component {
         return (
             <div id="sideBar">
                 <h1 id="categoryTitle">Category</h1>
-                <ul class="categories">
+                <ul className="categories">
                     {/*just some mock data for now...*/}
-                    <li class="categoryContent">On the Go</li>
-                    <li class="categoryContent">Family</li>
-                    <li class="categoryContent">Health Friendly</li>
-                    <li class="categoryContent">Italian</li>
-                    <li class="categoryContent">Chinese</li>
-                    <li class="categoryContent">Romantic</li>
+                    <li className="categoryContent">On the Go</li>
+                    <li className="categoryContent">Family</li>
+                    <li className="categoryContent">Health Friendly</li>
+                    <li className="categoryContent">Italian</li>
+                    <li className="categoryContent">Chinese</li>
+                    <li className="categoryContent">Romantic</li>
                 </ul>
             </div>
         );

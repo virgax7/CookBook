@@ -17,7 +17,7 @@ class App extends Component {
         return (
             <div id="mainWrapper">
                 <NavBar/>
-                <div class="spacer"></div>
+                <div className="spacer"></div>
                 <SideBar/>
                 <MainContent/>
             </div>
