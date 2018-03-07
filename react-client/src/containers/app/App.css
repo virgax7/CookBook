@@ -82,3 +82,29 @@
 #categoryTitle {
    font-size: 42px;
 }
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 400px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+#choices {
+    text-align: center;
+    font-size: 40px;
+}
+
+#mainContent {
+    padding: 3% 2% 3% 5%;
+    box-sizing: border-box;
+}
