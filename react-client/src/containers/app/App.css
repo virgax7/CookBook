@@ -106,7 +106,9 @@ div.desc {
 #mainContent {
     padding: 3% 2% 3% 5%;
     box-sizing: border-box;
-    background-image: url("../../images/landing/mainContentBackground.jpeg");
-    background-size: cover;
 }
 
+html {
+    background-image: url("../../images/landing/mainContentBackground.jpeg");
+    background-repeat: repeat-y;
+}

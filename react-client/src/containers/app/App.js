@@ -15,7 +15,7 @@ class App extends Component {
 
     render() {
         return (
-            <div id="mainWrapper">
+            <div>
                 <NavBar/>
                 <div className="spacer"></div>
                 <SideBar/>
