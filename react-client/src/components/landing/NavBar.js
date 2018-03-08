@@ -5,9 +5,9 @@ class NavBar extends Component {
         return (
             <div id="navBar">
                 <a href="#" className="navBarContents" id="cookBookTitle">CookBook</a>
-                <a href="#" className="navBarContents">News</a>
+                <a href="#" className="navBarContents">Trending</a>
                 <a href="#" className="navBarContents">Contact</a>
-                <a href="#" className="navBarContents"></a>
+                <a href="#" className="navBarContents">CookTable</a>
                 <div id="searchWrapper">
                     <form>
                         <input type="text" placeholder="Search.." name="search" id="searchInputText"/>

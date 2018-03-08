@@ -4,7 +4,7 @@ class MainContent extends Component {
     render() {
         return (
             <div id="mainContent">
-                <div id="choices">Choices</div>
+                <div id="choices">Top Choices</div>
                 {/*hard coded images, later retrieve from db or something*/}
                 <div className="gallery">
                     <img src={require('../../images/landing/burrito.jpeg')} alt="burrito" width="400" height="300"/>
