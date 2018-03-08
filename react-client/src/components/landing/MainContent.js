@@ -24,7 +24,7 @@ class MainContent extends Component {
                 </div>
                 <div className="gallery">
                     <img src={require('../../images/landing/stir-fry.jpeg')} alt="burrito" width="400" height="300"/>
-                    <div className="desc">Grandma's Stir fry</div>
+                    <div className="desc">Grandma&#39;s Stir fry</div>
                 </div>
                 <div className="gallery">
                     <img src={require('../../images/landing/pancake.jpeg')} alt="burrito" width="400" height="300"/>
