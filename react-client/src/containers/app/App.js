@@ -15,11 +15,15 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <div id="mainWrapper">
                 <NavBar/>
                 <div className="spacer"></div>
-                <SideBar/>
-                <MainContent/>
+                <div id="sideBarWrapper">
+                    <div id="mainContentWrapper">
+                        <SideBar/>
+                        <MainContent/>
+                    </div>
+                </div>
             </div>
         );
     }
