@@ -58,7 +58,6 @@
 }
 
 .categories {
-    height: 900px;
     padding: 20px;
 }
 
@@ -116,3 +115,13 @@ div.desc {
     background: #ffffe6 repeat-y left top;
 }
 
+#copyright-footer {
+    clear: both;
+    position: fixed;
+    width: 100%;
+    height: 15px;
+    bottom: 0;
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 12px 0;
+}

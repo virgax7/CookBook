@@ -1,16 +1,14 @@
 import React, {Component} from "react";
 import "../reset.css";
 import "./App.css";
-import NavBar from "../../components/landing/NavBar";
+import NavBar from "../../components/common/NavBar";
 import SideBar from "../../components/landing/SideBar";
 import MainContent from "../../components/landing/MainContent";
+import Footer from "../../components/common/Footer";
 
 class App extends Component {
     constructor(props) {
         super();
-    }
-
-    componentDidMount() {
     }
 
     render() {
@@ -22,6 +20,7 @@ class App extends Component {
                     <SideBar/>
                     <MainContent/>
                 </div>
+                <Footer />
             </div>
         );
     }
