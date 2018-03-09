@@ -104,6 +104,7 @@ div.desc {
     box-sizing: border-box;
     float: right;
     width: 78%;
+    background: url("../../images/landing/mainContentBackground.jpeg") repeat-y right top;
 }
 
 #mainWrapper {
@@ -113,10 +114,5 @@ div.desc {
 #sideBarWrapper {
     float: left;
     background: #ffffe6 repeat-y left top;
-}
-
-#mainContentWrapper {
-    float: right;
-    background: url("../../images/landing/mainContentBackground.jpeg") repeat-y right top;
 }
 
