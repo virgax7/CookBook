@@ -8,6 +8,8 @@ import NavBar from "../../components/common/NavBar";
 import Footer from "../../components/common/Footer";
 import SurpriseMe from "../../components/surprise/SurpriseMe";
 import {Landing} from "../../components/landing/Landing";
+import Trending from "../../components/trending/Trending";
+import Contact from "../../components/contact/Contact";
 
 class App extends Component {
     constructor(props) {
@@ -24,8 +26,12 @@ class App extends Component {
                         <a className="navBarContents" id="cookBookTitle">
                             <NavLink className="navBarLink" to="/">CookBook</NavLink>
                         </a>
-                        <a href="#" className="navBarContents">Trending</a>
-                        <a href="#" className="navBarContents">Contact</a>
+                        <a className="navBarContents">
+                            <NavLink className="navBarLink" to="/trending">Trending</NavLink>
+                        </a>
+                        <a className="navBarContents">
+                            <NavLink className="navBarLink" to="/contact">Contact</NavLink>
+                        </a>
                         <a className="navBarContents">
                             <NavLink className="navBarLink" to="/surpriseMe">Surprise Me</NavLink>
                         </a>
@@ -40,6 +46,8 @@ class App extends Component {
                     <div className="spacer"></div>
                     <div className="content">
                         <Route exact path="/" component={Landing} />
+                        <Route path="/trending" component={Trending} />
+                        <Route path="/contact" component={Contact} />
                         <Route path="/surpriseMe" component={SurpriseMe} />
                     </div>
                     <Footer/>
