@@ -1,22 +1,26 @@
 import React, {Component} from "react";
+import {NavLink} from "react-router-dom";
 
-class NavBar extends Component {
-    render() {
-        return (
-            <div id="navBar">
-                <a href="#" className="navBarContents" id="cookBookTitle">CookBook</a>
-                <a href="#" className="navBarContents">Trending</a>
-                <a href="#" className="navBarContents">Contact</a>
-                <a href="#" className="navBarContents">CookTable</a>
-                <div id="searchWrapper">
-                    <form>
-                        <input type="text" placeholder="Search.." name="search" id="searchInputText"/>
-                        <button type="submit" id="searchSubmitButton"/>
-                    </form>
-                </div>
+export const NavBar = () => (
+        <div id="navBar">
+            <a className="navBarContents" id="cookBookTitle">
+                <NavLink className="navBarLink" to="/">CookBook</NavLink>
+            </a>
+            <a className="navBarContents">
+                <NavLink className="navBarLink" to="/trending">Trending</NavLink>
+            </a>
+            <a className="navBarContents">
+                <NavLink className="navBarLink" to="/contact">Contact</NavLink>
+            </a>
+            <a className="navBarContents">
+                <NavLink className="navBarLink" to="/surpriseMe">Surprise Me</NavLink>
+            </a>
+            <div id="searchWrapper">
+                <form>
+                    <input type="text" placeholder="Search.." name="search" id="searchInputText"/>
+                    <button type="submit" id="searchSubmitButton"/>
+                </form>
             </div>
-        );
-    }
-}
+        </div>
+);
 
-export default NavBar;
