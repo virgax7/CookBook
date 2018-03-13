@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 export const NavBar = () => (
         <div id="navBar">
             <a className="navBarContents" id="cookBookTitle">
-                <NavLink className="navBarLink" to="/">CookBook</NavLink>
+                <NavLink className="navBarLink" exact to="/">CookBook</NavLink>
             </a>
             <a className="navBarContents">
                 <NavLink className="navBarLink" to="/trending">Trending</NavLink>
