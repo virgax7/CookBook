@@ -9,10 +9,13 @@ class NavBar extends Component {
                 <a href="#" className="navBarContents">Contact</a>
                 <a href="#" className="navBarContents">CookTable</a>
                 <div id="searchWrapper">
-                    <form>
+
+                    <form method="POST" action="/post-feedback">
                         <input type="text" placeholder="Search.." name="search" id="searchInputText"/>
                         <button type="submit" id="searchSubmitButton"/>
                     </form>
+                    <a href="/view-feedback">View Feedback</a>
+
                 </div>
             </div>
         );

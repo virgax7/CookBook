@@ -7,12 +7,23 @@ class SideBar extends Component {
                 <h1 id="categoryTitle">Category</h1>
                 <ul className="categories">
                     {/*just some mock data for now...*/}
-                    <li className="categoryContent">On the Go</li>
-                    <li className="categoryContent">Family</li>
-                    <li className="categoryContent">Health Friendly</li>
-                    <li className="categoryContent">Italian</li>
-                    <li className="categoryContent">Chinese</li>
-                    <li className="categoryContent">Romantic</li>
+                    <button style={{ height: 50, width: 200, fontWeight:150 }}
+                            className="categoryContent">On the Go</button>
+
+                    <button style={{ height: 50, width: 200, fontWeight:150 }}
+                        className="categoryContent">Family</button>
+
+                    <button style={{ height: 50, width: 200, fontWeight:150 }}
+                        className="categoryContent">Health Friendly</button>
+
+                    <button style={{ height: 50, width: 200, fontWeight:150 }}
+                        className="categoryContent">Italian</button>
+
+                    <button style={{ height: 50, width: 200, fontWeight:150 }}
+                        className="categoryContent">Chinese</button>
+
+                    <button  style={{ height: 50, width: 200, fontWeight:150 }}
+                        className="categoryContent">Romantic</button>
                 </ul>
             </div>
         );
