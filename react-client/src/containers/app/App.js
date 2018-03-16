@@ -1,10 +1,15 @@
 import React, {Component} from "react";
+import {Route, NavLink, HashRouter} from "react-router-dom";
+
 import "../reset.css";
 import "./App.css";
-import NavBar from "../../components/common/NavBar";
-import SideBar from "../../components/landing/SideBar";
-import MainContent from "../../components/landing/MainContent";
+
+import {NavBar} from "../../components/common/NavBar";
 import Footer from "../../components/common/Footer";
+import SurpriseMe from "../../components/surprise/SurpriseMe";
+import {Landing} from "../../components/landing/Landing";
+import Trending from "../../components/trending/Trending";
+import Contact from "../../components/contact/Contact";
 
 class App extends Component {
     constructor(props) {
@@ -13,15 +18,19 @@ class App extends Component {
 
     render() {
         return (
-            <div id="mainWrapper">
-                <NavBar/>
-                <div className="spacer"></div>
-                <div id="sideBarWrapper">
-                    <SideBar/>
-                    <MainContent/>
+            <HashRouter>
+                <div id="mainWrapper">
+                    <NavBar/>
+                    <div className="spacer"></div>
+                    <div className="content">
+                        <Route exact path="/" component={Landing} />
+                        <Route path="/trending" component={Trending} />
+                        <Route path="/contact" component={Contact} />
+                        <Route path="/surpriseMe" component={SurpriseMe} />
+                    </div>
+                    <Footer/>
                 </div>
-                <Footer />
-            </div>
+            </HashRouter>
         );
     }
 }

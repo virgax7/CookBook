@@ -125,3 +125,11 @@ div.desc {
     text-align: center;
     padding: 12px 0;
 }
+
+.navBarLink {
+    color: white;
+}
+
+.active {
+    color: darkseagreen;
+}
