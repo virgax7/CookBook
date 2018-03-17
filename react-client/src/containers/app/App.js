@@ -11,6 +11,11 @@ import {Landing} from "../../components/landing/Landing";
 import Trending from "../../components/trending/Trending";
 import Contact from "../../components/contact/Contact";
 
+import * as firebase from "firebase";
+import {firebaseConfig} from "./CredsConstants";
+
+firebase.initializeApp(firebaseConfig);
+
 class App extends Component {
     constructor(props) {
         super();
