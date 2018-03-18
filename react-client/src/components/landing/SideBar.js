@@ -11,8 +11,8 @@ class SideBar extends Component {
 
     componentWillMount() {
         const sideBarTopicListRef = firebase.database().ref("SideBarTopicList");
-        const categories = [];
-        sideBarTopicListRef.once("value", sideBarList => {
+        sideBarTopicListRef.on("value", sideBarList => {
+            const categories = [];
             sideBarList.forEach(category => {
                 categories.push(<li className="categoryContent" key={category.key}>{category.key}</li>);
             });
