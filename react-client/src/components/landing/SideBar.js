@@ -9,7 +9,7 @@ class SideBar extends Component {
        }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const sideBarTopicListRef = firebase.database().ref("SideBarTopicList");
         const categories = [];
         sideBarTopicListRef.once("value", sideBarList => {
