@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 
-export default class Trending extends Component {
+export default class SimCook extends Component {
     render() {
         return (
             <div>
-                Trending stuff
+                Huh
             </div>
         );
     }
 }
+
