@@ -9,7 +9,8 @@ export default class SimCookSearch extends Component {
         this.updateSearchValue = this.updateSearchValue.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            searchValue: ""
+            searchValue: "",
+            searchFailedMsg: ""
         };
     }
 
@@ -19,7 +20,9 @@ export default class SimCookSearch extends Component {
 
     updateSearchValue(event) {
         this.setState({
-           searchValue: event.target.value
+            searchValue: event.target.value,
+            searchFailedMsg: "",
+            searchList: []
         });
     }
 
@@ -28,14 +31,41 @@ export default class SimCookSearch extends Component {
             return;
         }
         event.preventDefault();
-        const searchResults = [];
+        const searchMap = new Map();
         firebase.database().ref("Recipes").on("value", snap => {
             snap.forEach(user => {
                 user.forEach(recipe => {
                     if (recipe.key.toUpperCase().includes(this.state.searchValue.toUpperCase())) {
-                        searchResults.push(<li className="searchContent" key={recipe.key}>{recipe.key}</li>);
+                        console.log(recipe);
+                        if (!searchMap.get(user.key)) {
+                            searchMap.set(user.key, [recipe])
+                        } else {
+                            searchMap.get(user.key).push(recipe);
+                        }
                     }
                 });
+            });
+            if (searchMap.size === 0) {
+                this.setState({
+                    searchFailedMsg: this.state.searchValue + " didn't match any recipes, please try again..."
+                });
+            }
+            const searchList = [];
+            searchMap.forEach((recipes, name) => {
+                recipes.forEach(recipe => {
+                    recipe.forEach(detail => {
+                        if (detail.key === "Description") {
+                            searchList.push(
+                                <li className={"searchResultItem"} key={detail.val()}>
+                                    <b className={"recipeTitle"}>{recipe.key}</b>: {detail.val()} - {name}
+                                </li>
+                            );
+                        }
+                    });
+                });
+            });
+            this.setState({
+                searchList: searchList
             });
         });
     }
@@ -46,9 +76,14 @@ export default class SimCookSearch extends Component {
                 <div id="searchSpacer"/>
                 <div id={"searchDiv"} className={"center"}>
                     <form id={"searchForm"} className={"center"} onSubmit={this.handleSubmit}>
-                        <input className={"center"} type={"text"} placeholder={"Search..."} name={"search"} onChange={this.updateSearchValue}/>
+                        <input className={"center"} type={"text"} placeholder={"Search..."} name={"search"}
+                               onChange={this.updateSearchValue}/>
                         <button className={"center"} type={"submit"}>Submit</button>
+                        <div className={"center"}>{this.state.searchFailedMsg}</div>
                     </form>
+                    <ul className={"center"}>
+                        {this.state.searchList}
+                    </ul>
                 </div>
                 {/*<div id={"searchAndSelectSimCookSearch"}>*/}
                 {/*<button onClick={this.handleStart}>Start</button>*/}
