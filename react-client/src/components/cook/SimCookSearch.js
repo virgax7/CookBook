@@ -12,12 +12,19 @@ export default class SimCookSearch extends Component {
     }
 
     render() {
-       return (
-           <div id={"simCookSearch"}>
-               <div id={"searchAndSelectSimCookSearch"}>
-                   <button onClick={this.handleStart}>Start</button>
-               </div>
-           </div>
-       );
+        return (
+            <div id={"simCookSearch"}>
+                <div id="searchSpacer"/>
+                <div id={"searchDiv"} className={"center"}>
+                    <form id={"searchForm"} className={"center"}>
+                        <input className={"center"} type={"text"} placeholder={"Search..."} name={"search"}/>
+                        <button className={"center"} type={"submit"}>Submit</button>
+                    </form>
+                </div>
+                {/*<div id={"searchAndSelectSimCookSearch"}>*/}
+                {/*<button onClick={this.handleStart}>Start</button>*/}
+                {/*</div>*/}
+            </div>
+        );
     }
 }
