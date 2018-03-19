@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./cook.css";
 
 export default class SimCookSearch extends Component {
     constructor(props) {

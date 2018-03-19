@@ -1,0 +1,19 @@
+#simCookSearch {
+    background-image: url("../../images/cook/simcook-bg.jpeg");
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#searchAndSelectSimCookSearch {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+}
+
+#searchAndSelectSimCookSearch button {
+    display: block;
+    margin: 0 auto;
+}
