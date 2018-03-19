@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import SimCookSearch from "./SimCookSearch";
+import SimCookKitchen from "./SimCookKitchen";
 
 export default class SimCook extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ export default class SimCook extends Component {
             ingredients: [],
             kitchenTools: [],
             isSearchPage: true
-        }
+        };
         this.changePageToSimCookKitchen = this.changePageToSimCookKitchen.bind(this);
     }
 
@@ -32,9 +33,7 @@ export default class SimCook extends Component {
             return <SimCookSearch onStartKitchen={this.changePageToSimCookKitchen}/> ;
         }
         return (
-            <div>
-                HI
-            </div>
+            <SimCookKitchen/>
         );
     }
 }

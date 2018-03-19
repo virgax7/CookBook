@@ -17,3 +17,27 @@
     display: block;
     margin: 0 auto;
 }
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+#searchDiv {
+    margin: auto;
+}
+
+#searchSpacer {
+    height: 20%;
+}
+
+#searchForm input {
+    font-size: 17px;
+    padding: 7px;
+    width: 300px;
+}
+
+#searchForm button {
+    padding: 5px 10px;
+    font-size: 15px;
+}
