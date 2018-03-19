@@ -27,6 +27,10 @@
     margin: auto;
 }
 
+#searchDiv ul {
+    text-align: center;
+}
+
 #searchSpacer {
     height: 20%;
 }
@@ -48,6 +52,11 @@
 }
 
 .recipeTitle {
-    font-size: 20px;
+    font-size: 28px;
     cursor: pointer;
+}
+
+.searchResultItem {
+    font-size: 20px;
+    padding: 0% 20%;
 }

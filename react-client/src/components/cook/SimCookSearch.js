@@ -36,7 +36,6 @@ export default class SimCookSearch extends Component {
             snap.forEach(user => {
                 user.forEach(recipe => {
                     if (recipe.key.toUpperCase().includes(this.state.searchValue.toUpperCase())) {
-                        console.log(recipe);
                         if (!searchMap.get(user.key)) {
                             searchMap.set(user.key, [recipe])
                         } else {
@@ -57,7 +56,7 @@ export default class SimCookSearch extends Component {
                         if (detail.key === "Description") {
                             searchList.push(
                                 <li className={"searchResultItem"} key={detail.val()}>
-                                    <b className={"recipeTitle"}>{recipe.key}</b>: {detail.val()} - {name}
+                                    <b className={"recipeTitle"}>&gt; {recipe.key}</b>: {detail.val()} - {name}
                                 </li>
                             );
                         }
