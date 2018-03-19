@@ -15,6 +15,9 @@ export default class SimCookSearch extends Component {
     }
 
     handleStart() {
+        const listText = this.div.innerText;
+        const food = listText.match(/^[^:]*:/g);
+        const user = listText.match(/[^-]+$/g);
         this.props.onStartKitchen("Mac", [], [], []);
     }
 
@@ -55,8 +58,10 @@ export default class SimCookSearch extends Component {
                     recipe.forEach(detail => {
                         if (detail.key === "Description") {
                             searchList.push(
-                                <li className={"searchResultItem"} key={detail.val()}>
-                                    <b className={"recipeTitle"}>&gt; {recipe.key}</b>: {detail.val()} - {name}
+                                <li className={"searchResultItem"} key={detail.val()} onClick={this.handleStart}>
+                                    <div ref={r => {this.div = r;}}>
+                                        <b className={"recipeTitle"}>&gt; {recipe.key}</b>: {detail.val()} - {name}
+                                    </div>
                                 </li>
                             );
                         }
@@ -84,9 +89,6 @@ export default class SimCookSearch extends Component {
                         {this.state.searchList}
                     </ul>
                 </div>
-                {/*<div id={"searchAndSelectSimCookSearch"}>*/}
-                {/*<button onClick={this.handleStart}>Start</button>*/}
-                {/*</div>*/}
             </div>
         );
     }

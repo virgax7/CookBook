@@ -6,7 +6,7 @@ export default class SimCook extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: "",
+            food: "",
             directions: [],
             ingredients: [],
             kitchenTools: [],
@@ -15,9 +15,9 @@ export default class SimCook extends Component {
         this.changePageToSimCookKitchen = this.changePageToSimCookKitchen.bind(this);
     }
 
-    changePageToSimCookKitchen(title, directions, ingredients, kitchenTools) {
+    changePageToSimCookKitchen(food, directions, ingredients, kitchenTools) {
         this.setState({
-            title: title,
+            food: food,
             directions: directions,
             ingredients: ingredients,
             kitchenTools: kitchenTools,
