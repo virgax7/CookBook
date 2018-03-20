@@ -17,9 +17,26 @@ export default class SimCook extends Component {
     }
 
     changePageToSimCookKitchen(food, directions, ingredients, kitchenTools) {
+        let ingredientList = [];
+        ingredients.forEach(ingredient => {
+            ingredientList.push(<li>{ingredient.key}: {ingredient.val()}</li>)
+        });
+        let toolList = [];
+        kitchenTools.forEach(tool => {
+            toolList.push(<li>{tool.key}</li>)
+        });
         let simCookSearchRecipeContent = (
-            <div id={"searchRecipeContent"} className={"center"}>
-                NEW STUFF
+            <div id={"searchRecipeContent"} className={"center centerText"}>
+                <h1 id={"foodTitle"}>{food}</h1>
+                <div id={"ingredients"}>
+                    <h2>Ingredients Required</h2>
+                    <ul>{ingredientList}</ul>
+                </div>
+                <div id={"kitchenTools"}>
+                    <h2>Kitchen Tools Required</h2>
+                    <ul>{toolList}</ul>
+                </div>
+                <button>Start Cooking!</button>
             </div>
         );
         this.setState({

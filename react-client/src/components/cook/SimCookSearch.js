@@ -10,15 +10,40 @@ export default class SimCookSearch extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             searchValue: "",
-            searchFailedMsg: ""
+            searchFailedMsg: "",
+            chosenRecipe: {}
         };
     }
 
     handleStart() {
         const listText = this.div.innerText;
-        const food = listText.match(/^[^:]*:/g);
-        const user = listText.match(/[^-]+$/g);
-        this.props.onStartKitchen("Mac", [], [], []);
+        let food = listText.match(/^[^:]*:/g).toString().substring(2);
+        food = food.slice(0, food.length - 1);
+        const userName = listText.match(/[^-]+$/g).toString().substring(1);
+        let directions;
+        let ingredients;
+        let kitchenTools;
+        firebase.database().ref("Recipes").once("value", snap => {
+           snap.forEach(user => {
+             if (user.key === userName) {
+                user.forEach(recipe => {
+                    if (recipe.key === food) {
+                        recipe.forEach(child => {
+                            if (child.key === "Directions") {
+                                directions = child;
+                            }else if (child.key === "Ingredients") {
+                                ingredients = child;
+                            }else if (child.key === "Kitchen Tools") {
+                                kitchenTools = child;
+                            }
+                        });
+                        this.props.onStartKitchen(food, directions, ingredients, kitchenTools);
+                        return;
+                    }
+                 });
+             }
+           });
+        });
     }
 
     updateSearchValue(event) {
@@ -35,7 +60,7 @@ export default class SimCookSearch extends Component {
         }
         event.preventDefault();
         const searchMap = new Map();
-        firebase.database().ref("Recipes").on("value", snap => {
+        firebase.database().ref("Recipes").once("value", snap => {
             snap.forEach(user => {
                 user.forEach(recipe => {
                     if (recipe.key.toUpperCase().includes(this.state.searchValue.toUpperCase())) {
