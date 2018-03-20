@@ -59,7 +59,7 @@ export default class SimCookSearch extends Component {
                         if (detail.key === "Description") {
                             searchList.push(
                                 <li className={"searchResultItem"} key={detail.val()} onClick={this.handleStart}>
-                                    <div ref={r => {this.div = r;}}>
+                                    <div ref={r => { this.div = r; }}>
                                         <b className={"recipeTitle"}>&gt; {recipe.key}</b>: {detail.val()} - {name}
                                     </div>
                                 </li>
@@ -75,20 +75,27 @@ export default class SimCookSearch extends Component {
     }
 
     render() {
+        let content;
+        if (this.props.showRecipePage) {
+            content = this.props.searchRecipeContent;
+        } else {
+            content =
+            <div id={"searchDiv"} className={"center"}>
+                <form id={"searchForm"} className={"center"} onSubmit={this.handleSubmit}>
+                    <input className={"center"} type={"text"} placeholder={"Search..."} name={"search"}
+                           onChange={this.updateSearchValue}/>
+                    <button className={"center"} type={"submit"}>Submit</button>
+                    <div className={"center"}>{this.state.searchFailedMsg}</div>
+                </form>
+                <ul className={"center"}>
+                    {this.state.searchList}
+                </ul>
+            </div>;
+        }
         return (
             <div id={"simCookSearch"}>
                 <div id="searchSpacer"/>
-                <div id={"searchDiv"} className={"center"}>
-                    <form id={"searchForm"} className={"center"} onSubmit={this.handleSubmit}>
-                        <input className={"center"} type={"text"} placeholder={"Search..."} name={"search"}
-                               onChange={this.updateSearchValue}/>
-                        <button className={"center"} type={"submit"}>Submit</button>
-                        <div className={"center"}>{this.state.searchFailedMsg}</div>
-                    </form>
-                    <ul className={"center"}>
-                        {this.state.searchList}
-                    </ul>
-                </div>
+                {content}
             </div>
         );
     }
