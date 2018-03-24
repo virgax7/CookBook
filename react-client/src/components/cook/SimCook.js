@@ -6,17 +6,19 @@ export default class SimCook extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            food: "",
-            directions: [],
-            ingredients: [],
-            kitchenTools: [],
             isSearchPage: true,
-            simCookSearchRecipeContent: <div></div>
         };
-        this.changePageToSimCookKitchen = this.changePageToSimCookKitchen.bind(this);
+        this.showRecipeConfirmation = this.showRecipeConfirmation.bind(this);
+        this.confirmRecipe = this.confirmRecipe.bind(this);
     }
 
-    changePageToSimCookKitchen(food, directions, ingredients, kitchenTools) {
+    confirmRecipe() {
+        this.setState({
+            isConfirmPage: false,
+        });
+    }
+
+    showRecipeConfirmation(food, directions, ingredients, kitchenTools) {
         let ingredientList = [];
         ingredients.forEach(ingredient => {
             ingredientList.push(<li>{ingredient.key}: {ingredient.val()}</li>)
@@ -36,7 +38,7 @@ export default class SimCook extends Component {
                     <h2>Kitchen Tools Required</h2>
                     <ul>{toolList}</ul>
                 </div>
-                <button>Start Cooking!</button>
+                <button onClick={this.confirmRecipe}>Start Cooking!</button>
             </div>
         );
         this.setState({
@@ -45,6 +47,7 @@ export default class SimCook extends Component {
             ingredients: ingredients,
             kitchenTools: kitchenTools,
             isSearchPage: false,
+            isConfirmPage: true,
             simCookSearchRecipeContent : simCookSearchRecipeContent
         });
     }
@@ -54,10 +57,13 @@ export default class SimCook extends Component {
 
     render() {
         if (this.state.isSearchPage) {
-            return <SimCookSearch showRecipePage={false} onStartKitchen={this.changePageToSimCookKitchen}/> ;
+            return <SimCookSearch showRecipePage={false} onStartKitchen={this.showRecipeConfirmation}/> ;
+        }
+        if (this.state.isConfirmPage) {
+            return <SimCookSearch showRecipePage={true} searchRecipeContent={this.state.simCookSearchRecipeContent}/>
         }
         return (
-            <SimCookSearch showRecipePage={true} searchRecipeContent={this.state.simCookSearchRecipeContent}/>
+            <SimCookKitchen />
         );
     }
 }
