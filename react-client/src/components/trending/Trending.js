@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class Trending extends Component {
+export default class Trending extends Component {
     render() {
         return (
             <div>
@@ -9,7 +9,3 @@ class Trending extends Component {
         );
     }
 }
-
-
-export default Trending;
-

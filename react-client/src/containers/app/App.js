@@ -11,9 +11,11 @@ import SurpriseMe from "../../components/surprise/SurpriseMe";
 import {Landing} from "../../components/landing/Landing";
 import Trending from "../../components/trending/Trending";
 import Contact from "../../components/contact/Contact";
+import SimCook from "../../components/cook/SimCook";
 
 import * as firebase from "firebase";
 import {firebaseConfig} from "./CredsConstants";
+import SimCookKitchen from "../../components/cook/SimCookKitchen";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -33,6 +35,8 @@ class App extends Component {
                         <Route path="/trending" component={Trending} />
                         <Route path="/contact" component={Contact} />
                         <Route path="/surpriseMe" component={SurpriseMe} />
+                        <Route path="/simCook" component={SimCook} />
+                        <Route path="/simCookKitchen" component={SimCookKitchen} />
                     </div>
                     <Footer/>
                 </div>
