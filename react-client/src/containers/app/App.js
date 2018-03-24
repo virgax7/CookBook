@@ -3,7 +3,7 @@ import {Route, HashRouter} from "react-router-dom";
 
 import "../reset.css";
 import "./App.css";
-import "./Contact.css";
+import "../../components/contact/Contact.css";
 
 import {NavBar} from "../../components/common/NavBar";
 import Footer from "../../components/common/Footer";
