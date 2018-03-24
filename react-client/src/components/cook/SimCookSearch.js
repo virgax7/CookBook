@@ -5,7 +5,7 @@ import * as firebase from "firebase";
 export default class SimCookSearch extends Component {
     constructor(props) {
         super(props);
-        this.handleStart = this.handleStart.bind(this);
+        this.handleShowConfirmation = this.handleShowConfirmation.bind(this);
         this.updateSearchValue = this.updateSearchValue.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
@@ -15,7 +15,7 @@ export default class SimCookSearch extends Component {
         };
     }
 
-    handleStart() {
+    handleShowConfirmation() {
         const listText = this.div.innerText;
         let food = listText.match(/^[^:]*:/g).toString().substring(2);
         food = food.slice(0, food.length - 1);
@@ -37,7 +37,7 @@ export default class SimCookSearch extends Component {
                                 kitchenTools = child;
                             }
                         });
-                        this.props.onStartKitchen(food, directions, ingredients, kitchenTools);
+                        this.props.onShowConfirmation(food, directions, ingredients, kitchenTools);
                         return;
                     }
                  });
@@ -83,7 +83,7 @@ export default class SimCookSearch extends Component {
                     recipe.forEach(detail => {
                         if (detail.key === "Description") {
                             searchList.push(
-                                <li className={"searchResultItem"} key={detail.val()} onClick={this.handleStart}>
+                                <li className={"searchResultItem"} key={detail.val()} onClick={this.handleShowConfirmation}>
                                     <div ref={r => { this.div = r; }}>
                                         <b className={"recipeTitle"}>&gt; {recipe.key}</b>: {detail.val()} - {name}
                                     </div>
